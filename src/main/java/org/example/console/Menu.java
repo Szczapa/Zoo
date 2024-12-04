@@ -1,4 +1,4 @@
-package org.example.Console;
+package org.example.console;
 
 public class Menu {
     public void menuPrincipale() {

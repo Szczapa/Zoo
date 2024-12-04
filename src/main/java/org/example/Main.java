@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.Console.ConsoleMenu;
+import org.example.console.ConsoleMenu;
 
 import java.util.Scanner;
 

@@ -1,10 +1,10 @@
-package org.example.Console;
+package org.example.console;
 
-import org.example.Animal;
-import org.example.Bird;
-import org.example.Mammal;
-import org.example.Enclosure;
-import org.example.ZooManager;
+import org.example.entity.Animal;
+import org.example.entity.Bird;
+import org.example.entity.Mammal;
+import org.example.entity.Enclosure;
+import org.example.entity.ZooManager;
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ public class ConsoleMenu {
     private final ZooManager zooManager;
 
     public ConsoleMenu() {
-        this.zooManager = new ZooManager(); // Initialisation de ZooManager
+        this.zooManager = new ZooManager();
     }
 
     public void startMenu(Scanner scanner) {
@@ -100,7 +100,6 @@ public class ConsoleMenu {
         System.out.println("\n");
         System.out.println("Nourrir tous les animaux :");
         zooManager.feedAllAnimals();
-        System.out.println("Tous les animaux ont été nourris !");
     }
 
     private void addEnclosure(Scanner scanner) {

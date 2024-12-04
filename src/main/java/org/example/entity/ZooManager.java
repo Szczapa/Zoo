@@ -1,4 +1,6 @@
-package org.example;
+package org.example.entity;
+
+import org.example.actions.IZooAction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +29,7 @@ public class ZooManager {
     }
 
     public void listAllAnimals() {
-        if (zooAnimals.isEmpty()){
+        if (zooAnimals.isEmpty()) {
             System.out.println("Aucun animal");
             return;
         }
@@ -36,10 +38,10 @@ public class ZooManager {
     }
 
     public void listAnimalsByEnclosure() {
-        if (zooEnclosures.isEmpty()){
+        if (zooEnclosures.isEmpty()) {
             System.out.println("Aucun enclos");
             return;
-        } else if (zooAnimals.isEmpty()){
+        } else if (zooAnimals.isEmpty()) {
             System.out.println("Aucun animal");
             return;
         }
@@ -70,13 +72,20 @@ public class ZooManager {
     }
 
     public void feedAllAnimals() {
-        if (zooAnimals.isEmpty()) {
-            System.out.println("Aucun animal");
-            return;
-        }
-        for (Animal animal : zooAnimals) {
-            System.out.println(animal.eat());
-        }
+        IZooAction feedAction = new IZooAction() {
+            @Override
+            public void action() {
+                if (zooAnimals == null || zooAnimals.isEmpty()) {
+                    System.out.println("Aucun animal à nourrir.");
+                    return;
+                }
+                System.out.println("Nourrissage des animaux en cours...");
+                for (Animal animal : zooAnimals) {
+                    System.out.println(animal.eat());
+                }
+                System.out.println("Tous les animaux ont été nourris !");
+            }
+        };
+        feedAction.action();
     }
-
 }

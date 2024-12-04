@@ -1,4 +1,4 @@
-package org.example;
+package org.example.entity;
 
 public abstract class Animal {
     private static int counter = 1;
